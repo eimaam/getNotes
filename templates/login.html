@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG IN</title>
+    <link rel="icon" type="image" href="{% static '/images/favicon.png' %}">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung:regular" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:regular,italic,700,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Rowdies:300,regular,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Space+Grotesk:300,regular,500,600,700" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/fontawesome/css/all.css' %}">
+    <style>
+        h4{
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method = "POST">
+            {% csrf_token %}
+            <legend> SIGN IN: </legend>
+            <input name="userName" type="text" placeholder="User Name">
+            <input name="passwordEntry" type="password" placeholder="Password">
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+            <button>LOGIN</button>
+            <p>Don't have an account? <a href="{% url 'signup' %}"> SIGN UP</a></p>
+        </form>
+    </div>
+</body>
+</html> 

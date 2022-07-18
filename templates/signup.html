@@ -1,0 +1,46 @@
+{% load static %}
+
+<style>
+    h4{
+        color: red;
+        text-align: center;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %">
+    <link rel="icon" type="image" href="{% static '/IMAGES/favicon.png' %">
+    <title>Sign in</title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung:regular" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:regular,italic,700,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Rowdies:300,regular,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Space+Grotesk:300,regular,500,600,700" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <form method = "POST">
+            {% csrf_token %}
+            <legend> SIGN UP: </legend>
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+            <input name = "userName" type="text" placeholder="User Name">
+            <input name = "emailEntry" type="email" placeholder="E-mail Address">
+            <input name = "passwordEntry" type="password" placeholder="Password">
+            <input name = "passwordEntry2" type="password" placeholder="Confirm Password">
+            <button>sign up</button>
+            <p>Have an Account? <a href="{% url 'LandingPage' %}"> LOGIN </a></p>
+        </form>
+    </div>
+</body>
+</html>
